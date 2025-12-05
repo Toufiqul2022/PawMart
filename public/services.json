@@ -1,0 +1,122 @@
+[
+  {
+    "serviceId": 1,
+    "serviceName": "Basic Pet Health Checkup",
+    "providerName": "Paws & Claws Veterinary Clinic",
+    "providerEmail": "contact@pawsclawsvet.com",
+    "price": 25,
+    "rating": 4.6,
+    "slotsAvailable": 5,
+    "description": "Routine physical exam including weight, temperature, and general health evaluation.",
+    "image": "https://i.ibb.co.com/Kcby7jMZ/woman-grooming-golden-retriever-dog.jpg",
+    "category": "Health"
+  },
+  {
+    "serviceId": 2,
+    "serviceName": "Winter Grooming & Paw Treatment",
+    "providerName": "CozyPets Grooming Studio",
+    "providerEmail": "hello@cozypetsgrooming.com",
+    "price": 30,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Moisturizing paw balm, winter-safe shampoo, trimming, and coat softening.",
+    "image": "https://i.ibb.co.com/8VdCBNc/full-shot-women-petting-dog.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 3,
+    "serviceName": "Complete Pet Vaccination",
+    "providerName": "GreenLeaf Animal Hospital",
+    "providerEmail": "support@greenleafvet.com",
+    "price": 45,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Essential dog/cat vaccinations with certified vet documentation.",
+    "image": "https://i.ibb.co.com/nqv1tqCv/professional-veterinarian-check-dog-breed-yorkshire-terrier-using-otoscope-pet-hospital.jpg",
+    "category": "Health"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Premium Pet Boarding",
+    "providerName": "HappyTail Pet Resort",
+    "providerEmail": "info@happytailresort.com",
+    "price": 60,
+    "rating": 4.7,
+    "slotsAvailable": 2,
+    "description": "Comfortable suites, daily meals, play sessions, and 24/7 monitoring.",
+    "image": "https://i.ibb.co.com/TMsqBW3M/ayla-verschueren-n-WKMtmbpx-Qs-unsplash.jpg",
+    "category": "Boarding"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Pet Walking (30 Minutes)",
+    "providerName": "UrbanWalk Pet Services",
+    "providerEmail": "walks@urbanwalkpets.com",
+    "price": 12,
+    "rating": 4.5,
+    "slotsAvailable": 6,
+    "description": "Friendly professional walkers with GPS tracking and safety assurance.",
+    "image": "https://i.ibb.co.com/KjDNJ2F7/alvan-nee-T-0-EW-SEbs-E-unsplash.jpg",
+    "category": "Walking"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "Deluxe Grooming Package",
+    "providerName": "ShinyCoat Grooming Hub",
+    "providerEmail": "studio@shinycoat.com",
+    "price": 40,
+    "rating": 4.8,
+    "slotsAvailable": 4,
+    "description": "Includes trimming, brushing, ear cleaning, nail clipping, and coat styling.",
+    "image": "https://i.ibb.co.com/WWR8jS6w/fuzzy-rescue-e8-DXpv-Cvj-Y-unsplash.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 7,
+    "serviceName": "Beginner Obedience Training",
+    "providerName": "SmartPaws Training Academy",
+    "providerEmail": "train@smartpawsacademy.com",
+    "price": 55,
+    "rating": 4.9,
+    "slotsAvailable": 3,
+    "description": "Sit, stay, recall, leash-walking basics, and social behavior training.",
+    "image": "https://i.ibb.co.com/39p8jx2V/yerlin-matu-Gtwi-Bmt-Jva-U-unsplash.jpg",
+    "category": "Training"
+  },
+  {
+    "serviceId": 8,
+    "serviceName": "Pet Dental Cleaning",
+    "providerName": "SmileVet Dental Center",
+    "providerEmail": "oralcare@smilevetdental.com",
+    "price": 50,
+    "rating": 4.7,
+    "slotsAvailable": 4,
+    "description": "Teeth scaling, tartar removal, and a full oral hygiene evaluation.",
+    "image": "https://i.ibb.co.com/rRNYSGqF/j-balla-photography-c-Mti-Wji-Avq4-unsplash.jpg",
+    "category": "Health"
+  },
+  {
+    "serviceId": 9,
+    "serviceName": "Luxury Pet Spa & Massage",
+    "providerName": "RelaxPet Wellness Spa",
+    "providerEmail": "spa@relaxpetwellness.com",
+    "price": 70,
+    "rating": 4.9,
+    "slotsAvailable": 2,
+    "description": "Aromatherapy bath, deep coat conditioning, and stress-relief massage.",
+    "image": "https://i.ibb.co.com/tWpCPqn/pexels-emrahayvali-1981111.jpg",
+    "category": "Spa"
+  },
+  {
+    "serviceId": 10,
+    "serviceName": "Home Pet Sitting (1 Hour)",
+    "providerName": "CareBuddy Pet Sitters",
+    "providerEmail": "care@carebuddy.com",
+    "price": 20,
+    "rating": 4.6,
+    "slotsAvailable": 5,
+    "description": "Feeding, litter cleaning, playtime, and general monitoring at your home.",
+    "image": "https://i.ibb.co.com/NdNwDvRN/pexels-tahir-x-lf-2153788153-33998165.jpg",
+    "category": "Sitting"
+  }
+]
