@@ -23,11 +23,11 @@ const PetHero = () => {
   ];
 
   return (
-    <section className="py-12 bg-white">
-      <h2 className="text-3xl font-bold text-center text-gray-900 mb-6">
+    <section className="py-12">
+      <h2 className="text-3xl font-bold text-center mb-6">
         Meet Our Pet Heroes
       </h2>
-      <p className="text-gray-600 text-center max-w-xl mx-auto mb-10">
+      <p className="text-center max-w-xl mx-auto mb-10">
         These incredible humans have changed lives through adoption, rescue, and
         compassionate caregiving. Each story reminds us how powerful love can
         be.
@@ -44,11 +44,11 @@ const PetHero = () => {
               alt={hero.name}
               className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-white shadow"
             />
-            <h3 className="text-xl font-semibold text-gray-900">{hero.name}</h3>
-            <p className="text-sm text-indigo-600 font-medium mb-2">
+            <h3 className="text-xl font-semibold">{hero.name}</h3>
+            <p className="text-sm font-medium mb-2">
               {hero.role}
             </p>
-            <p className="text-gray-700 text-sm">{hero.text}</p>
+            <p className="text-sm">{hero.text}</p>
           </div>
         ))}
       </div>
