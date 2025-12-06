@@ -6,7 +6,7 @@ const MyOrder = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/orders")
+      .get("https://assignment-10-backend-dun.vercel.app/orders")
       .then((res) => {
         console.log(res.data);
         setMyOrder(res.data);

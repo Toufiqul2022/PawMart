@@ -7,7 +7,9 @@ const CategoryFilteredProducts = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/category/${categoryName}`)
+    fetch(
+      `https://assignment-10-backend-dun.vercel.app/category/${categoryName}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -18,7 +20,7 @@ const CategoryFilteredProducts = () => {
         setLoading(false);
       });
   }, [categoryName]);
-  console.log(products)
+  console.log(products);
 
   if (loading) return <p className="text-center mt-10">Loading...</p>;
   if (!products.length)

@@ -9,7 +9,7 @@ const ServiceDetails = () => {
   const [service, setService] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/services/${id}`)
+    fetch(`https://assignment-10-backend-dun.vercel.app/services/${id}`)
       .then((res) => res.json())
       .then((data) => setService(data))
       .catch((err) => console.error(err));
@@ -36,9 +36,9 @@ const ServiceDetails = () => {
     };
 
     axios
-      .post("http://localhost:3000/orders", orderData)
+      .post("https://assignment-10-backend-dun.vercel.app/orders", orderData)
       .then((res) => {
-        console.log(res)
+        console.log(res);
       })
       .catch((err) => console.error(err));
   };

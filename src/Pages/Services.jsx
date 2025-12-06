@@ -8,7 +8,9 @@ const Services = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:3000/services?category=${category}`)
+    fetch(
+      `https://assignment-10-backend-dun.vercel.app/services?category=${category}`
+    )
       .then((res) => res.json())
       .then((data) => setServices(data))
       .catch((error) => console.error(error));
@@ -72,7 +74,9 @@ const Services = () => {
                 <h2 className="card-title text-xl font-bold">{service.name}</h2>
 
                 <div className="flex justify-between items-center mt-1 text-sm text-gray-500">
-                  <span className="badge badge-outline">{service.category}</span>
+                  <span className="badge badge-outline">
+                    {service.category}
+                  </span>
                   <span className="text-gray-400">{service.location}</span>
                 </div>
 

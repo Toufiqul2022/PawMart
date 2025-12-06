@@ -8,7 +8,7 @@ const RecentListing = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/recent-services")
+      .get("https://assignment-10-backend-dun.vercel.app/recent-services")
       .then((res) => {
         setRecent(res.data);
         setLoading(false);

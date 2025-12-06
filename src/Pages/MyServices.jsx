@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Link } from "react-router"; 
+import { Link } from "react-router";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -13,7 +13,9 @@ const MyServices = () => {
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch(`http://localhost:3000/my-services?email=${user.email}`)
+    fetch(
+      `https://assignment-10-backend-dun.vercel.app/my-services?email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMyServices(data);
@@ -37,9 +39,9 @@ const MyServices = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/delete/${id}`)
+          .delete(`https://assignment-10-backend-dun.vercel.app/delete/${id}`)
           .then((res) => {
-            console.log(res)
+            console.log(res);
             const filterData = myServices.filter(
               (service) => service._id !== id
             );

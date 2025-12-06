@@ -29,24 +29,26 @@ const AddServices = () => {
     };
     console.log(formData);
 
-    axios.post("http://localhost:3000/services", formData).then((res) => {
-      console.log(res);
-      if (res.data.acknowledged) {
-        Swal.fire({
-          title: `${name} Add Successfully!`,
-          icon: "success",
-          draggable: true,
-        });
-        e.target.reset();
-      } else {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Something went wrong!",
-          footer: '<a href="#">Why do I have this issue?</a>',
-        });
-      }
-    });
+    axios
+      .post("https://assignment-10-backend-dun.vercel.app/services", formData)
+      .then((res) => {
+        console.log(res);
+        if (res.data.acknowledged) {
+          Swal.fire({
+            title: `${name} Add Successfully!`,
+            icon: "success",
+            draggable: true,
+          });
+          e.target.reset();
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+            footer: '<a href="#">Why do I have this issue?</a>',
+          });
+        }
+      });
   };
 
   return (
