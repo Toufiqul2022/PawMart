@@ -13,51 +13,51 @@ import MyListing from "../Pages/MyListing";
 import UpdateServices from "../Pages/UpdateServices";
 import MyOrder from "../Pages/MyOrder";
 import CategoryFilteredProducts from "../Pages/CategoryFilteredProducts";
-import MyProfile from "../../../Assignment-9/src/Pages/MyProfile";
+import MyProfile from "../Pages/MyProfile";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    Component: Root,
-    errorElement: <Error404></Error404>,
+    element: <Root />,
+    errorElement: <Error404 />,
     children: [
       {
         index: true,
-        Component: Home,
+        element: <Home />,
       },
       {
         path: "/services",
-        Component: Services,
+        element: <Services />,
       },
       {
         path: "/register",
-        Component: Register,
+        element: <Register />,
       },
       {
         path: "/login",
-        Component: Login,
+        element: <Login />,
       },
       {
         path: "/service/:id",
         element: (
           <PrivateRoute>
-            <ServiceDetails></ServiceDetails>
+            <ServiceDetails />
           </PrivateRoute>
         ),
       },
       {
         path: "/forget/:email",
-        Component: ForgetPassword,
+        element: <ForgetPassword />,
       },
       {
         path: "/my-profile",
-        Component: MyProfile,
+        element: <MyProfile />,
       },
       {
         path: "/add-services",
         element: (
           <PrivateRoute>
-            <AddListing></AddListing>
+            <AddListing />
           </PrivateRoute>
         ),
       },
@@ -65,7 +65,7 @@ export const router = createBrowserRouter([
         path: "/my-services",
         element: (
           <PrivateRoute>
-            <MyListing></MyListing>
+            <MyListing />
           </PrivateRoute>
         ),
       },
@@ -73,7 +73,7 @@ export const router = createBrowserRouter([
         path: "/update-services/:id",
         element: (
           <PrivateRoute>
-            <UpdateServices></UpdateServices>
+            <UpdateServices />
           </PrivateRoute>
         ),
       },
@@ -81,13 +81,13 @@ export const router = createBrowserRouter([
         path: "/my-orders",
         element: (
           <PrivateRoute>
-            <MyOrder></MyOrder>
+            <MyOrder />
           </PrivateRoute>
         ),
       },
       {
         path: "/category-filtered-product/:categoryName",
-        element: <CategoryFilteredProducts></CategoryFilteredProducts>,
+        element: <CategoryFilteredProducts />,
       },
     ],
   },
