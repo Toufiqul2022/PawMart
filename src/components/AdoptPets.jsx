@@ -2,7 +2,7 @@ import React from "react";
 
 const AdoptPets = () => {
   return (
-    <section className="rounded-xl p-8 md:p-12 text-center shadow-sm">
+    <section className="rounded-xl max-w-7xl mx-auto p-8 md:p-12 text-center shadow-sm">
       <h2 className="text-3xl font-bold flex items-center justify-center gap-2">
         Why Adopt from PawMart?
       </h2>

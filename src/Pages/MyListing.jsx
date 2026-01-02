@@ -83,7 +83,7 @@ const MyListing = () => {
         </div>
       )}
 
-      <div className="overflow-x-auto shadow-xl rounded-xl">
+      <div className="max-w-7xl mx-auto overflow-x-auto shadow-xl rounded-xl">
         <table className="table table-zebra">
           <thead className="bg-gray-800 text-white text-lg">
             <tr>

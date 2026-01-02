@@ -138,7 +138,7 @@ const AddListing = () => {
           <label className="block font-semibold mb-1">Email</label>
           <input
             type="email"
-            className="w-full border p-2 rounded bg-gray-200 cursor-not-allowed"
+            className="w-full border p-2 rounded cursor-not-allowed"
             name="email"
             readOnly
             value={user?.email}

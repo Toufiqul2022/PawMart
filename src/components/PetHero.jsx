@@ -27,7 +27,7 @@ const PetHero = () => {
       <h2 className="text-3xl font-bold text-center mb-6">
         Meet Our Pet Heroes
       </h2>
-      <p className="text-center max-w-xl mx-auto mb-10">
+      <p className="text-center max-w-7xl mx-auto mb-10">
         These incredible humans have changed lives through adoption, rescue, and
         compassionate caregiving. Each story reminds us how powerful love can
         be.

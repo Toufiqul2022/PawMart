@@ -17,11 +17,11 @@ const MyOrder = () => {
   }, []);
 
   return (
-    <div className="p-8">
+    <div className=" max-w-7xl mx-auto py-8">
       <h2 className="text-3xl font-bold mb-6 text-center">My Orders</h2>
       <div className="overflow-x-auto">
-        <table className="min-w-full border border-gray-300 rounded-lg shadow-md">
-          <thead className="bg-gray-100 text-lg font-semibold">
+        <table className="min-w-full border rounded-lg shadow-md">
+          <thead className="text-lg font-semibold">
             <tr>
               <th className="py-3 px-4 border-b">#</th>
               <th className="py-3 px-4 border-b">Buyer Name</th>
@@ -44,7 +44,7 @@ const MyOrder = () => {
               myOrder.map((order, index) => (
                 <tr
                   key={order._id}
-                  className="hover:bg-gray-50 transition-colors duration-200"
+                  className="transition-colors duration-200"
                 >
                   <th className="py-3 px-4 border-b">{index + 1}</th>
                   <td className="py-3 px-4 border-b">{order.buyerName}</td>
