@@ -8,8 +8,17 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
         <div className="space-y-2">
           <div className="flex items-center text-2xl font-bold gap-3">
-             <LuPawPrint />
-          <h2>PawMart</h2>
+            <div className="p-6">
+              <Link
+                to="/"
+                className="flex items-center gap-3 text-2xl font-bold text-primary transition-opacity hover:opacity-80"
+              >
+                <div className="p-2 bg-primary/10 rounded-xl">
+                  <LuPawPrint className="text-3xl" />
+                </div>
+                <span>PawMart</span>
+              </Link>
+            </div>
           </div>
           <p className="max-w-xs leading-relaxed">
             PawMart connects local pet owners and buyers for adoption and pet

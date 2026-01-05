@@ -12,21 +12,22 @@ import image4 from "../assets/image-4.avif";
 
 const Slider = () => {
   return (
-    <div className="max-w-7xl mx-auto my-6">
+    <div className="max-w-7xl mx-auto my-6 px-2">
       <Swiper
         navigation
         loop
         autoplay={{ delay: 3000 }}
         modules={[Navigation, Autoplay]}
-        className="rounded-2xl overflow-hidden"
+        className="rounded-3xl overflow-hidden shadow-2xl"
       >
         <SwiperSlide>
           <div className="relative">
             <img
-              className="w-full h-[320px] md:h-[520px] object-cover"
+              className="w-full h-[320px] md:h-[520px] object-cover rounded-3xl"
               src={image1}
+              alt=""
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent rounded-3xl" />
             <div className="absolute left-10 top-1/2 -translate-y-1/2 text-white space-y-4 pl-10">
               <h1 className="text-3xl md:text-5xl font-bold">
                 <Typewriter
@@ -45,10 +46,11 @@ const Slider = () => {
         <SwiperSlide>
           <div className="relative">
             <img
-              className="w-full h-[320px] md:h-[520px] object-cover"
+              className="w-full h-[320px] md:h-[520px] object-cover rounded-3xl"
               src={image2}
+              alt=""
             />
-            <div className="absolute inset-0 bg-black/50" />
+            <div className="absolute inset-0 bg-black/50 rounded-3xl" />
             <div className="absolute left-10 top-1/2 -translate-y-1/2 text-white space-y-4 pl-10">
               <h1 className="text-3xl md:text-5xl font-bold">
                 <Typewriter
@@ -67,10 +69,11 @@ const Slider = () => {
         <SwiperSlide>
           <div className="relative">
             <img
-              className="w-full h-[320px] md:h-[520px] object-cover"
+              className="w-full h-[320px] md:h-[520px] object-cover rounded-3xl"
               src={image3}
+              alt=""
             />
-            <div className="absolute inset-0 bg-black/50" />
+            <div className="absolute inset-0 bg-black/50 rounded-3xl" />
             <div className="absolute left-10 top-1/2 -translate-y-1/2 text-white space-y-4 pl-10">
               <h1 className="text-3xl md:text-5xl font-bold">
                 <Typewriter
@@ -89,10 +92,11 @@ const Slider = () => {
         <SwiperSlide>
           <div className="relative">
             <img
-              className="w-full h-[320px] md:h-[520px] object-cover"
+              className="w-full h-[320px] md:h-[520px] object-cover rounded-3xl"
               src={image4}
+              alt=""
             />
-            <div className="absolute inset-0 bg-black/50" />
+            <div className="absolute inset-0 bg-black/50 rounded-3xl" />
             <div className="absolute left-10 top-1/2 -translate-y-1/2 text-white space-y-4 pl-10">
               <h1 className="text-3xl md:text-5xl font-bold">
                 <Typewriter

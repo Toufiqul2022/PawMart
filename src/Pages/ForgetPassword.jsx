@@ -24,7 +24,10 @@ const ForgetPassword = () => {
   };
 
   return (
-    <div className="flex justify-center items-center my-28">
+    <div className="flex justify-center items-center my-28  bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 overflow-hidden">
+      {/* Decorative Background Shapes */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full -translate-x-1/2 -translate-y-1/2 animate-pulse z-0"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full translate-x-1/3 translate-y-1/3 animate-pulse z-0"></div>
       <ToastContainer position="top-right" autoClose={5000} />
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <div className="card-body">

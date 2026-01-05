@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router";
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import axios from "axios";
+import api from "../utils/api";
 
 const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
@@ -9,9 +9,9 @@ const ServiceDetails = () => {
   const [service, setService] = useState(null);
 
   useEffect(() => {
-    fetch(`https://assignment-10-backend-dun.vercel.app/services/${id}`)
-      .then((res) => res.json())
-      .then((data) => setService(data))
+    api
+      .get(`/services/${id}`)
+      .then((res) => setService(res.data))
       .catch((err) => console.error(err));
   }, [id]);
 
@@ -24,7 +24,8 @@ const ServiceDetails = () => {
     const orderData = {
       productId: service._id,
       buyerName: form.buyerName.value,
-      email: form.email.value,
+      buyerEmail: form.email.value,
+      sellerEmail: service.email,
       productName: form.productName.value,
       quantity: Number(form.quantity.value),
       price: Number(form.price.value),
@@ -32,19 +33,21 @@ const ServiceDetails = () => {
       phone: form.phone.value,
       additionalNotes: form.notes.value,
       pickupDate: form.pickupDate.value,
-      createdAt: new Date().toISOString(),
     };
 
-    axios
-      .post("https://assignment-10-backend-dun.vercel.app/orders", orderData)
-      .then((res) => {
-        console.log(res);
+    api
+      .post("/orders", orderData)
+      .then(() => {
+        document.getElementById("booking_modal")?.close?.();
       })
       .catch((err) => console.error(err));
   };
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full flex justify-center  bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 overflow-hidden pb-10">
+      {/* Decorative Background Shapes */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full -translate-x-1/2 -translate-y-1/2 animate-pulse z-0"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full translate-x-1/3 translate-y-1/3 animate-pulse z-0"></div>
       <div className="max-w-4xl mt-10 bg-white rounded-2xl shadow-lg p-6 border w-full">
         <div className="w-full h-[350px] rounded-xl overflow-hidden">
           <img

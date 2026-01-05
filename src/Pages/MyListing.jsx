@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link } from "react-router";
-import axios from "axios";
+import api from "../utils/api";
 import Swal from "sweetalert2";
 
 const MyListing = () => {
@@ -13,12 +13,10 @@ const MyListing = () => {
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch(
-      `https://assignment-10-backend-dun.vercel.app/my-services?email=${user.email}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setMyListing(data);
+    api
+      .get(`/my-services?email=${user.email}`)
+      .then((res) => {
+        setMyListing(res.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -38,8 +36,8 @@ const MyListing = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios
-          .delete(`https://assignment-10-backend-dun.vercel.app/delete/${id}`)
+        api
+          .delete(`/delete/${id}`)
           .then((res) => {
             console.log(res);
             const filterData = MyListing.filter(
@@ -74,7 +72,12 @@ const MyListing = () => {
   }
 
   return (
-    <div className="px-5 md:px-10 my-10">
+    <div className="relative px-5 md:px-10 py-10 overflow-hidden bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 min-h-screen">
+      {/* Decorative Background Shapes */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full translate-x-1/3 translate-y-1/3 animate-pulse"></div>
+      <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-white/5 rounded-full animate-spin-slow"></div>
+      <div className="absolute bottom-1/3 left-1/3 w-80 h-80 bg-white/5 rounded-full animate-ping"></div>
       <h1 className="text-3xl font-bold text-center mb-8">My Services</h1>
 
       {MyListing.length === 0 && (
@@ -130,7 +133,7 @@ const MyListing = () => {
                       Delete
                     </button>
 
-                    <Link to={`/update-services/${service?._id}`}>
+                    <Link to={`/dashboard/update-services/${service?._id}`}>
                       <button className="btn btn-primary btn-sm px-5">
                         Edit
                       </button>

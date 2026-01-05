@@ -6,6 +6,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import api from "../utils/api";
 
 const Login = () => {
   const { setUser, handleGoogleSignIn } = useContext(AuthContext);
@@ -26,6 +27,14 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
+        // ✅ Ensure user exists in MongoDB
+        api
+          .post("/users", {
+            name: user.displayName,
+            email: user.email,
+            photoURL: user.photoURL,
+          })
+          .catch(console.log);
         toast.success("Login Successful!", { autoClose: 1500 });
 
         setTimeout(() => {
@@ -43,6 +52,14 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
+        // ✅ Ensure user exists in MongoDB
+        api
+          .post("/users", {
+            name: user.displayName,
+            email: user.email,
+            photoURL: user.photoURL,
+          })
+          .catch(console.log);
         toast.success("Google Login Successful!", { autoClose: 1500 });
 
         setTimeout(() => {

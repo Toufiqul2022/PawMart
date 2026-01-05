@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import api from "../utils/api";
 
 const RecentListing = () => {
   const [recent, setRecent] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get("https://assignment-10-backend-dun.vercel.app/recent-services")
+    api
+      .get("/recent-services")
       .then((res) => {
         setRecent(res.data);
         setLoading(false);
@@ -27,7 +27,7 @@ const RecentListing = () => {
         {/* Skeleton */}
         {loading && (
           <div className="grid md:grid-cols-4 sm:grid-cols-3 gap-6 mt-10">
-            {[...Array(8)].map((_, i) => (
+            {[...Array(6)].map((_, i) => (
               <div
                 key={i}
                 className="animate-pulse h-80 rounded-xl bg-gray-200"

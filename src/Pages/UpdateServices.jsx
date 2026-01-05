@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useNavigate, useParams } from "react-router";
-import axios from "axios";
+import api from "../utils/api";
 
 const UpdateServices = () => {
   const { user } = useContext(AuthContext);
@@ -12,8 +12,8 @@ const UpdateServices = () => {
   const [category, setCategory] = useState(services?.category);
 
   useEffect(() => {
-    axios
-      .get(`https://assignment-10-backend-dun.vercel.app/services/${id}`)
+    api
+      .get(`/services/${id}`)
       .then((res) => {
         setServices(res.data);
         setCategory(res.data.category);
@@ -44,14 +44,11 @@ const UpdateServices = () => {
       email,
       createAt: services?.createAt,
     };
-    axios
-      .put(
-        `https://assignment-10-backend-dun.vercel.app/update/${id}`,
-        formData
-      )
+    api
+      .put(`/update/${id}`, formData)
       .then((res) => {
         console.log(res.data);
-        navigate("/my-services");
+        navigate("/dashboard/my-listing");
       })
       .catch((error) => {
         console.log(error);
@@ -89,8 +86,8 @@ const UpdateServices = () => {
             <option value="">Select Category</option>
             <option value="Pets">Pets</option>
             <option value="Food">Food</option>
-            <option value="Accessories">Accessories</option>
-            <option value="Care Products">Care Products</option>
+            <option value="accessories">Accessories</option>
+            <option value="Pet Care Products">Pet Care Products</option>
           </select>
         </div>
 

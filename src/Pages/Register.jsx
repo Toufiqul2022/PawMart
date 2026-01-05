@@ -6,6 +6,7 @@ import { auth } from "../Firebase/Firebase.config";
 import { FcGoogle } from "react-icons/fc";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import api from "../utils/api";
 const Register = () => {
   const { registerWithEmailPassword, setUser, handleGoogleSignIn } =
     useContext(AuthContext);
@@ -44,6 +45,10 @@ const Register = () => {
         })
           .then(() => {
             setUser(result.user);
+            // ✅ Save user to MongoDB (default role=user)
+            api
+              .post("/users", { name, email, photoURL: PhotoUrl })
+              .catch(console.log);
             toast.success("Account created successfully!");
             setTimeout(() => {
               navigate("/");
@@ -63,6 +68,14 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
+        // ✅ Save/Upsert user to MongoDB
+        api
+          .post("/users", {
+            name: user.displayName,
+            email: user.email,
+            photoURL: user.photoURL,
+          })
+          .catch(console.log);
         toast.success("Signed in with Google!");
         setTimeout(() => {
           navigate("/");
@@ -74,7 +87,10 @@ const Register = () => {
   };
 
   return (
-    <div className="hero bg-base-200">
+    <div className="hero bg-base-200  bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 overflow-hidden">
+      {/* Decorative Background Shapes */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full -translate-x-1/2 -translate-y-1/2 animate-pulse z-0"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full translate-x-1/3 translate-y-1/3 animate-pulse z-0"></div>
       <div className="hero-content flex-col">
         <div className="text-center">
           <h1 className="text-5xl font-bold">Register now!</h1>

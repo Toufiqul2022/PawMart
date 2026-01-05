@@ -25,6 +25,21 @@ const Navbar = () => {
       <li>
         <NavLink to="/services">Pets & Supplies</NavLink>
       </li>
+      <li>
+        <NavLink to="/faq">FAQ</NavLink>
+      </li>
+      <li>
+        <NavLink to="/cta">CTA</NavLink>
+      </li>
+      <li>
+        <NavLink to="/blogs">Blogs</NavLink>
+      </li>
+      <li>
+        <NavLink to="/statistics">Statistics </NavLink>
+      </li>
+      <li>
+        <NavLink to="/highlights">Highlights </NavLink>
+      </li>
     </>
   );
 
@@ -43,7 +58,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm px-10">
+    <div className="navbar bg-base-200 shadow-sm px-10">
       <div className="navbar-start">
         {/* Mobile Menu */}
         <div className="dropdown z-10">
@@ -72,9 +87,17 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <Link to="/" className="flex items-center gap-3 text-2xl font-bold">
-          <LuPawPrint /> PawMart
-        </Link>
+        <div className="p-6">
+          <Link
+            to="/"
+            className="flex items-center gap-3 text-2xl font-bold text-primary transition-opacity hover:opacity-80"
+          >
+            <div className="p-2 bg-primary/10 rounded-xl">
+              <LuPawPrint className="text-3xl" />
+            </div>
+            <span>PawMart</span>
+          </Link>
+        </div>
       </div>
 
       {/* Desktop Menu */}
@@ -134,9 +157,21 @@ const Navbar = () => {
 
         {/* Auth Buttons */}
         {user ? (
-          <button onClick={handleSignOut} className="btn">
-            LogOut
-          </button>
+          <ul
+            tabIndex={0}
+            className="dropdown-content mt-3 z-[1] p-3 w-64 flex gap-2"
+          >
+            <Link to="/dashboard" className="btn flex-1">
+              Dashboard
+            </Link>
+
+            <button
+              onClick={handleSignOut}
+              className="btn btn-outline btn-error flex-1"
+            >
+              Logout
+            </button>
+          </ul>
         ) : (
           <>
             <Link to="/login" className="btn">
