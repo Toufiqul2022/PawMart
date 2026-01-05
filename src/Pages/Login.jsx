@@ -12,22 +12,21 @@ const Login = () => {
   const { setUser, handleGoogleSignIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-  const [email, setEmail] = useState(" ");
+  const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const email = e.target.email.value;
     const password = e.target.password.value;
 
-    if (!password) {
-      return toast.warning("Please enter your password");
-    }
+    if (!email) return toast.warning("Please enter your email");
+    if (!password) return toast.warning("Please enter your password");
 
-    signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, email.trim(), password)
       .then((result) => {
         const user = result.user;
         setUser(user);
-        // ✅ Ensure user exists in MongoDB
+
+        // Ensure user exists in MongoDB
         api
           .post("/users", {
             name: user.displayName,
@@ -35,16 +34,13 @@ const Login = () => {
             photoURL: user.photoURL,
           })
           .catch(console.log);
-        toast.success("Login Successful!", { autoClose: 1500 });
 
+        toast.success("Login Successful!", { autoClose: 1500 });
         setTimeout(() => {
           navigate(location.state || "/");
         }, 1500);
       })
-      .catch((error) => {
-        console.log(error);
-        toast.error(error.message);
-      });
+      .catch((error) => toast.error(error.message));
   };
 
   const googleSignIn = () => {
@@ -52,7 +48,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        // ✅ Ensure user exists in MongoDB
+
         api
           .post("/users", {
             name: user.displayName,
@@ -60,15 +56,13 @@ const Login = () => {
             photoURL: user.photoURL,
           })
           .catch(console.log);
-        toast.success("Google Login Successful!", { autoClose: 1500 });
 
+        toast.success("Google Login Successful!", { autoClose: 1500 });
         setTimeout(() => {
           navigate(location.state || "/");
         }, 1500);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => console.log(error));
   };
 
   const handleForget = () => {
@@ -76,49 +70,60 @@ const Login = () => {
   };
 
   return (
-    <div className="hero bg-base-200">
-      <ToastContainer position="top-right" autoClose={40000} />
-      <div className="hero-content flex-col">
-        <div className="text-center">
-          <h1 className="text-5xl font-bold">Login now!</h1>
+    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 px-5 md:px-10 py-10 overflow-hidden">
+      <ToastContainer position="top-right" autoClose={2000} />
+
+      <div className="relative z-10 w-full max-w-sm">
+        <div className="text-center mb-6">
+          <h1 className="text-5xl font-bold text-white">Login now!</h1>
         </div>
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        <div className="card bg-base-100 shadow-2xl rounded-xl">
           <div className="card-body">
             <form onSubmit={handleSubmit}>
-              <fieldset className="fieldset">
+              <fieldset>
                 <label className="label">Email</label>
                 <input
-                  onChange={(e) => setEmail(e.target.value)}
                   type="email"
-                  className="input"
                   name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Email"
+                  className="input input-bordered w-full"
                   required
                 />
-                <label className="label">Password</label>
+                <label className="label mt-3">Password</label>
                 <input
                   type="password"
-                  className="input"
                   name="password"
                   placeholder="Password"
+                  className="input input-bordered w-full"
                   required
                 />
-                <div className="mt-2">
-                  <button onClick={handleForget} className="link link-hover">
+                <div className="mt-2 text-right">
+                  <button
+                    type="button"
+                    onClick={handleForget}
+                    className="link link-hover text-sm"
+                  >
                     Forgot password?
                   </button>
                 </div>
+
                 <button
                   type="button"
                   onClick={googleSignIn}
-                  className="btn text-2xl mt-2 w-full flex items-center justify-center gap-2"
+                  className="btn btn-outline mt-4 w-full flex items-center justify-center gap-2"
                 >
                   <span className="text-[16px]">Sign In with</span> <FcGoogle />
                 </button>
-                <Link to="/register" className="block mt-2 text-center">
-                  New in our Website?{" "}
-                  <span className="text-blue-600">Register</span>
+
+                <Link
+                  to="/register"
+                  className="block mt-4 text-center text-sm text-gray-600 hover:text-blue-600"
+                >
+                  New here? <span className="text-blue-600">Register</span>
                 </Link>
+
                 <button type="submit" className="btn btn-neutral mt-4 w-full">
                   Login
                 </button>
